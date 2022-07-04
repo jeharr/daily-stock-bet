@@ -17,10 +17,23 @@ const StockPicker = () => {
       }
     }).then((res) => {
       console.log("FROM YAHOO", res)
+      const json = res.json()
+
+      setSelectedSymbol(json)
     }).catch((err) => {
       console.log(err)
     })
   }
+
+  // async function requestStocks() {
+  //   const res = await fetch(
+  //     'https://yfapi.net/v1/finance/trending/US'
+  //   )
+
+  //   const json = await res.json()
+
+  //   setStock(json.stock)
+  // }
 
   return (
     <div className={styles.stockPickerContainer}>
