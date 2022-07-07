@@ -35,7 +35,10 @@ const StockPicker = () => {
       this is the container for all the stocks
       <div className={styles.stock}>
         <div>
-
+          <h1>Top 20 Stocks</h1>
+          <button href="https://finance.yahoo.com/">Click to view more</button>
+          <br></br>
+          <a href="https://finance.yahoo.com/">Yahoo Finance</a>
         </div>
       </div>
     </div>
