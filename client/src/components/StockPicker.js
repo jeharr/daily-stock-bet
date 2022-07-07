@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import styles from './StockPicker.scss'
 
+import MagicEightBall from './MagicEightBall'
+
+
 const StockPicker = () => {
 
   const [selectedSymbol, setSelectedSymbol] = useState('')
@@ -37,8 +40,10 @@ const StockPicker = () => {
         <div>
           <h1>Top 20 Stocks</h1>
           <button href="https://finance.yahoo.com/">Click to view more</button>
-          <br></br>
+          <br />
           <a href="https://finance.yahoo.com/">Yahoo Finance</a>
+          <br />
+          <MagicEightBall />
         </div>
       </div>
     </div>
