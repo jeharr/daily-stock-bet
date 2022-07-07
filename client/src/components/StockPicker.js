@@ -6,6 +6,7 @@ import styles from './StockPicker.scss'
 const StockPicker = () => {
 
   const [selectedSymbol, setSelectedSymbol] = useState('')
+  const [data, setData] = useState('cheeseBurger')
 
   const getData = () => {
     console.log("GETTING DATA")
@@ -13,34 +14,28 @@ const StockPicker = () => {
       method: 'get',
       url: 'https://yfapi.net/v1/finance/trending/US',
       headers: {
-        'X-API-KEY': 'Xcu0IEVbYf55SP8NEWrrlabp8XxqTxPL7S5TVyf8'
+        'X-API-KEY': 'YhcMFdSYF51p57zzdDnXi3CqXguPBs8vdmiuH0Q8'
       }
     }).then((res) => {
       console.log("FROM YAHOO", res)
-      const json = res.json()
+      setData(res)
 
-      setSelectedSymbol(json)
     }).catch((err) => {
       console.log(err)
     })
   }
 
-  // async function requestStocks() {
-  //   const res = await fetch(
-  //     'https://yfapi.net/v1/finance/trending/US'
-  //   )
+  useEffect(() => {
+    getData()
 
-  //   const json = await res.json()
-
-  //   setStock(json.stock)
-  // }
+  }, [])
 
   return (
     <div className={styles.stockPickerContainer}>
       this is the container for all the stocks
       <div className={styles.stock}>
         <div>
-          stock name one
+
         </div>
       </div>
     </div>
