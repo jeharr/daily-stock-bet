@@ -4,6 +4,8 @@ import axios from 'axios'
 import styles from './StockPicker.scss'
 
 import MagicEightBall from './MagicEightBall'
+import GameOfChance from './GameOfChance'
+
 
 
 const StockPicker = () => {
@@ -17,7 +19,7 @@ const StockPicker = () => {
       method: 'get',
       url: 'https://yfapi.net/v1/finance/trending/US',
       headers: {
-        'X-API-KEY': 'YhcMFdSYF51p57zzdDnXi3CqXguPBs8vdmiuH0Q8'
+        'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
       }
     }).then((res) => {
       console.log("FROM YAHOO", res)
@@ -33,17 +35,26 @@ const StockPicker = () => {
 
   }, [])
 
+  // const stocks = data.finance.result[0].quotes
+
+  // console.log("THIS IS THE STOCK DATA", stocks)
+
   return (
     <div className={styles.stockPickerContainer}>
       this is the container for all the stocks
       <div className={styles.stock}>
+
         <div>
           <h1>Top 20 Stocks</h1>
-          <button href="https://finance.yahoo.com/">Click to view more</button>
-          <br />
-          <a href="https://finance.yahoo.com/">Yahoo Finance</a>
-          <br />
-          <MagicEightBall />
+          <p>Stocks:</p>
+        </div>
+        <br />
+        <MagicEightBall />
+        <a href="https://finance.yahoo.com/">Yahoo Finance</a>
+        <br />
+        <div className={styles.stockPickerContainer}>
+          <h3>Leave it to Chance!</h3>
+          <GameOfChance />
         </div>
       </div>
     </div>

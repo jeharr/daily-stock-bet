@@ -61,20 +61,26 @@ class MagicEightBall extends React.Component {
 
     return (
       <div>
-        <img src="https://appinventor.mit.edu/explore/sites/all/files/ai2tutorials/magic8ball/magic8ball.jpg" alt="blahblah"></img>
         <div>
           <input
             type="text"
+            placeholder="type your question here"
             value={this.state.userInput}
             onChange={this.handleChange}
             style={inputStyle}
           />
           <br />
-          <button onClick={this.ask}>Ask the Magic Eight Ball</button>
+          <button onClick={this.ask}>
+            <h3>
+              Ask the Magic Eight Ball
+            </h3>
+            <img src="https://appinventor.mit.edu/explore/sites/all/files/ai2tutorials/magic8ball/magic8ball.jpg" alt="blahblah">
+            </img>
+            <h3>Answer:</h3>
+            <p>{answer}</p>
+          </button>
           <br />
         </div>
-        <h3>Answer:</h3>
-        <p>{answer}</p>
       </div>
     )
   }
