@@ -22,14 +22,14 @@ const StockPicker = () => {
         'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
       }
     }).then((res) => {
-      console.log("FROM YAHOO", res)
-      setData(res)
+
+      setData(res.data.finance.result[0].quotes)
 
     }).catch((err) => {
       console.log(err)
     })
   }
-
+  console.log("data", data)
   useEffect(() => {
     getData()
 
@@ -50,13 +50,12 @@ const StockPicker = () => {
         </div>
         <br />
         <MagicEightBall />
-        <a href="https://finance.yahoo.com/">Yahoo Finance</a>
         <br />
         <div className={styles.stockPickerContainer}>
-          <h3>Leave it to Chance!</h3>
           <GameOfChance />
         </div>
       </div>
+      <a href="https://finance.yahoo.com/">Yahoo Finance</a>
     </div>
   )
 }

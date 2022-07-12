@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./StockPicker.scss"
 
 class Result extends React.Component {
   constructor(props) {
@@ -29,14 +30,18 @@ class GameOfChance extends React.Component {
   }
 
   render() {
-    const expression = (Math.ceil(Math.random()) >= .5 ? true : false)
+    const expression = (Math.random() >= .5 ? true : false)
     return (
-      <div>
-        <button onClick={this.handleClick}>Play Again!</button>
+      <div className={styles.stockPickerContainer}>
+        <div>
+          <h2>Leave it to Chance!</h2>
+          <button onClick={this.handleClick}>Play Again!</button>
 
-        <Result fiftyFifty={expression} />
+          <Result fiftyFifty={expression} />
 
-        <p>{'Turn: ' + this.state.counter}</p>
+          <p>{'Turn: ' + this.state.counter}</p>
+
+        </div>
       </div>
     )
   }
