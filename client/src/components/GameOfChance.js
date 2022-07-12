@@ -29,7 +29,7 @@ class GameOfChance extends React.Component {
   }
 
   render() {
-    const expression = (Math.random() >= .5 ? true : false)
+    const expression = (Math.ceil(Math.random()) >= .5 ? true : false)
     return (
       <div>
         <button onClick={this.handleClick}>Play Again!</button>
