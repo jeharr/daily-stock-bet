@@ -5,6 +5,7 @@ import styles from './StockPicker.scss'
 
 import MagicEightBall from './MagicEightBall'
 import GameOfChance from './GameOfChance'
+import NavBar from './NavBar'
 
 
 
@@ -43,6 +44,7 @@ const StockPicker = () => {
     <div className={styles.stockPickerContainer}>
       this is the container for all the stocks
       <div className={styles.stock}>
+        <NavBar />
 
         <div>
           <h1>Top 20 Stocks</h1>
