@@ -1,10 +1,14 @@
 import React from "react"
 
+
 class NavBar extends React.Component {
 
   render() {
     return (
-      <div>Home Button</div>
+      <div>
+        <h1>Company Logo</h1>
+        <button>Home</button>
+      </div>
     )
   }
 }
