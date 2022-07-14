@@ -8,7 +8,6 @@ import GameOfChance from './GameOfChance'
 import NavBar from './NavBar'
 
 
-
 const StockPicker = () => {
 
   const [selectedSymbol, setSelectedSymbol] = useState('')
@@ -42,10 +41,8 @@ const StockPicker = () => {
 
   return (
     <div className={styles.stockPickerContainer}>
-      this is the container for all the stocks
       <div className={styles.stock}>
         <NavBar />
-
         <div>
           <h1>Top 20 Stocks</h1>
           <p>Stocks:</p>
