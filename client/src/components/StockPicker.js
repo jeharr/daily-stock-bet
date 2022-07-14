@@ -35,9 +35,8 @@ const StockPicker = () => {
 
   }, [])
 
-  // const stocks = data.finance.result[0].quotes
-
-  // console.log("THIS IS THE STOCK DATA", stocks)
+  const stocks = data
+  // const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA']
 
   return (
     <div className={styles.stockPickerContainer}>
@@ -45,7 +44,14 @@ const StockPicker = () => {
         <NavBar />
         <div>
           <h1>Top 20 Stocks</h1>
-          <p>Stocks:</p>
+          <ul>
+            <h2>Stocks:</h2>
+            {stocks.map((stock) => {
+              return (
+                <li>{stock.symbol}</li>
+              )
+            })}
+          </ul>
         </div>
         <br />
         <MagicEightBall />
