@@ -48,7 +48,11 @@ const StockPicker = () => {
             <h2>Stocks:</h2>
             {stocks.map((stock) => {
               return (
-                <li>{stock.symbol}</li>
+                <li key={stock.symbol}>
+                  <button>
+                    {stock.symbol}
+                  </button>
+                </li>
               )
             })}
           </ul>
