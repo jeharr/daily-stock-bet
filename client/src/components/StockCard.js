@@ -10,6 +10,7 @@ const StockCard = () => {
         <image>Logo</image>
         <h2>Stock Value</h2>
         <p>Stock Info</p>
+        <img src='' alt=''></img>
       </div>
     </div>
   )
