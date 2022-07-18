@@ -35,8 +35,8 @@ const StockPicker = () => {
 
   }, [])
 
-  const stocks = data
-  // const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA']
+  // const stocks = data
+  const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA']
 
   return (
     <div className={styles.stockPickerContainer}>
@@ -50,7 +50,7 @@ const StockPicker = () => {
               return (
                 <li key={stock.symbol}>
                   <button>
-                    {stock.symbol}
+                    {stock}
                   </button>
                 </li>
               )
