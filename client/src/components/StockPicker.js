@@ -11,7 +11,7 @@ import Footer from './Footer'
 const StockPicker = () => {
 
   const [selectedSymbol, setSelectedSymbol] = useState('')
-  const [data, setData] = useState('testData')
+  const [data, setData] = useState([])
 
   const getData = () => {
     console.log("GETTING DATA")
