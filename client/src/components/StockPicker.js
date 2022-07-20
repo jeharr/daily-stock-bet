@@ -6,12 +6,12 @@ import styles from './StockPicker.scss'
 import MagicEightBall from './MagicEightBall'
 import GameOfChance from './GameOfChance'
 import NavBar from './NavBar'
-
+import Footer from './Footer'
 
 const StockPicker = () => {
 
   const [selectedSymbol, setSelectedSymbol] = useState('')
-  const [data, setData] = useState('')
+  const [data, setData] = useState('testData')
 
   const getData = () => {
     console.log("GETTING DATA")
@@ -35,8 +35,8 @@ const StockPicker = () => {
 
   }, [])
 
-  // const stocks = data
-  const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA', 'GOOG', 'SONY', 'WEDS']
+  const stocks = data
+  // const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA', 'GOOG', 'SONY', 'WEDS']
 
   return (
     <div className={styles.stockPickerContainer}>
@@ -44,20 +44,7 @@ const StockPicker = () => {
         <NavBar />
         <div>
           <h1>Top 20 Stocks</h1>
-          <ul>
-            <h2>Stocks:</h2>
-            {stocks.map((stock) => {
-              return (
-                <li key={stock.symbol}>
-                  <button onClick={() => {
-                    console.log('clicked me!')
-                  }}>
-                    {stock}
-                  </button>
-                </li>
-              )
-            })}
-          </ul>
+          <h2>Stocks:</h2>
         </div>
         <br />
         <MagicEightBall />
@@ -66,7 +53,7 @@ const StockPicker = () => {
           <GameOfChance />
         </div>
       </div>
-      <a href="https://finance.yahoo.com/">Yahoo Finance</a>
+      <Footer />
     </div>
   )
 }

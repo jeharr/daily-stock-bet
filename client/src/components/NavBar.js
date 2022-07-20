@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom'
 import logo from '../images/stockLogo.jpeg'
 
 class NavBar extends React.Component {
@@ -6,9 +7,8 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <button>Home</button>
         <img alt={logo} src={logo} />
-        <h1>Company Logo</h1>
+        <Link to="/home">Home</Link>
       </div>
     )
   }
