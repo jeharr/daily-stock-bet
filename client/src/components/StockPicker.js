@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import styles from './StockPicker.scss'
 
+import NavBar from './NavBar'
 import MagicEightBall from './MagicEightBall'
 import GameOfChance from './GameOfChance'
-import NavBar from './NavBar'
 import Footer from './Footer'
 
 const StockPicker = () => {
@@ -35,23 +35,33 @@ const StockPicker = () => {
 
   }, [])
 
+  const handleStockSelect = (stock) => {
+    setSelectedSymbol(stock)
+  }
+
   const stocks = data
   // const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA', 'GOOG', 'SONY', 'WEDS']
 
   return (
     <div className={styles.stockPickerContainer}>
+      <NavBar />
       <div className={styles.stock}>
-        <NavBar />
         <div>
+          <h1>Selected Stock: {selectedSymbol}</h1>
           <h1>Top 20 Stocks</h1>
           <h2>Stocks:</h2>
+          {stocks.map((stock) => {
+            return (
+              <li onClick={() => {
+                handleStockSelect(stock.symbol)
+              }}>{stock.symbol}</li>
+            )
+          })}
         </div>
         <br />
+        <h2>Games</h2>
         <MagicEightBall />
-        <br />
-        <div className={styles.stockPickerContainer}>
-          <GameOfChance />
-        </div>
+        <GameOfChance />
       </div>
       <Footer />
     </div>
@@ -59,5 +69,3 @@ const StockPicker = () => {
 }
 
 export default StockPicker
-
-/// display yahoo stock data and make able to select a stock
