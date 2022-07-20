@@ -6,9 +6,8 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <button>Home</button>
         <img alt={logo} src={logo} />
-        <h1>Company Logo</h1>
+        <h1>Stock Speculator</h1>
       </div>
     )
   }

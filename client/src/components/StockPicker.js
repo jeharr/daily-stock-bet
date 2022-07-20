@@ -3,15 +3,15 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import styles from './StockPicker.scss'
 
-import MagicEightBall from './MagicEightBall'
-import GameOfChance from './GameOfChance'
 import NavBar from './NavBar'
-
+import GameOfChance from './GameOfChance'
+import MagicEightBall from './MagicEightBall'
+import Footer from './Footer'
 
 const StockPicker = () => {
 
   const [selectedSymbol, setSelectedSymbol] = useState('')
-  const [data, setData] = useState('')
+  const [data, setData] = useState('cheeseBurger')
 
   const getData = () => {
     console.log("GETTING DATA")
@@ -19,54 +19,36 @@ const StockPicker = () => {
       method: 'get',
       url: 'https://yfapi.net/v1/finance/trending/US',
       headers: {
-        'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
+        'X-API-KEY': 'YhcMFdSYF51p57zzdDnXi3CqXguPBs8vdmiuH0Q8'
       }
     }).then((res) => {
-
-      setData(res.data.finance.result[0].quotes)
+      console.log("FROM YAHOO", res)
+      setData(res)
 
     }).catch((err) => {
       console.log(err)
     })
   }
-  console.log("data", data)
+
   useEffect(() => {
     getData()
 
   }, [])
 
-  // const stocks = data
-  const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA', 'GOOG', 'SONY', 'WEDS']
-
   return (
     <div className={styles.stockPickerContainer}>
+      <NavBar />
       <div className={styles.stock}>
-        <NavBar />
         <div>
           <h1>Top 20 Stocks</h1>
-          <ul>
-            <h2>Stocks:</h2>
-            {stocks.map((stock) => {
-              return (
-                <li key={stock.symbol}>
-                  <button onClick={() => {
-                    console.log('clicked me!')
-                  }}>
-                    {stock}
-                  </button>
-                </li>
-              )
-            })}
-          </ul>
         </div>
-        <br />
-        <MagicEightBall />
-        <br />
-        <div className={styles.stockPickerContainer}>
+        <div>
+          <h3>Games</h3>
+          <MagicEightBall />
           <GameOfChance />
         </div>
       </div>
-      <a href="https://finance.yahoo.com/">Yahoo Finance</a>
+      <Footer />
     </div>
   )
 }
