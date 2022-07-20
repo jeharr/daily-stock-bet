@@ -11,7 +11,7 @@ import NavBar from './NavBar'
 const StockPicker = () => {
 
   const [selectedSymbol, setSelectedSymbol] = useState('')
-  const [data, setData] = useState('cheeseBurger')
+  const [data, setData] = useState('')
 
   const getData = () => {
     console.log("GETTING DATA")
@@ -36,7 +36,7 @@ const StockPicker = () => {
   }, [])
 
   // const stocks = data
-  const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA']
+  const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA', 'GOOG', 'SONY', 'WEDS']
 
   return (
     <div className={styles.stockPickerContainer}>
@@ -49,7 +49,9 @@ const StockPicker = () => {
             {stocks.map((stock) => {
               return (
                 <li key={stock.symbol}>
-                  <button>
+                  <button onClick={() => {
+                    console.log('clicked me!')
+                  }}>
                     {stock}
                   </button>
                 </li>
