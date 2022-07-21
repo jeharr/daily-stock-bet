@@ -6,8 +6,6 @@ class Footer extends React.Component {
       <div>
         <a href="https://finance.yahoo.com/">Yahoo Finance</a>
         <a href="https://yahoo.com">Email Us</a>
-      <div className='navBar'>
-        <a href="https://finance.yahoo.com/">Yahoo Finance</a>
       </div>
     )
   }
