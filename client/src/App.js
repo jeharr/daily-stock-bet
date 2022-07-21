@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  Router,
-  Route,
-} from 'react-router-dom'
-
+import { Router, Route } from 'react-router-dom'
 import axios from 'axios'
 //import { customHistory } from './stores'
 
@@ -17,7 +13,7 @@ function App() {
       method: 'get',
       url: 'https://yfapi.net/v1/finance/trending/US',
       headers: {
-        'X-API-KEY': 'o7BQGCyHyS8asbXxMa54t1AJOgZPQffN9ZQaRDDg'
+        'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
       }
     }).then((res) => {
       console.log("FROM YAHOO", res)
