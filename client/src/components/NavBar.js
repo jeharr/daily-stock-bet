@@ -7,6 +7,7 @@ class NavBar extends React.Component {
     return (
       <div>
         <img alt={logo} src={logo} />
+        <h1>Stock Speculator</h1>
       </div>
     )
   }

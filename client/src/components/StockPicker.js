@@ -4,8 +4,8 @@ import axios from 'axios'
 import styles from './StockPicker.scss'
 
 import NavBar from './NavBar'
-import MagicEightBall from './MagicEightBall'
 import GameOfChance from './GameOfChance'
+import MagicEightBall from './MagicEightBall'
 import Footer from './Footer'
 
 const StockPicker = () => {
@@ -19,21 +19,22 @@ const StockPicker = () => {
       method: 'get',
       url: 'https://yfapi.net/v1/finance/trending/US',
       headers: {
-        'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
+        'X-API-KEY': 'YhcMFdSYF51p57zzdDnXi3CqXguPBs8vdmiuH0Q8'
       }
     }).then((res) => {
-
-      setData(res.data.finance.result[0].quotes)
+      console.log("FROM YAHOO", res)
+      setData(res)
 
     }).catch((err) => {
       console.log(err)
     })
   }
-  console.log("data", data)
+
   useEffect(() => {
     getData()
 
   }, [])
+
 
   const handleStockSelect = (stock) => {
     setSelectedSymbol(stock)
@@ -49,6 +50,7 @@ const StockPicker = () => {
         <div>
           <h1>Selected Stock: {selectedSymbol}</h1>
           <h1>Top 20 Stocks</h1>
+        </div>
           <h2>Stocks:</h2>
           {stocks.map((stock) => {
             return (
