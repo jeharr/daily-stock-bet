@@ -11,7 +11,7 @@ import Footer from './Footer'
 const StockPicker = () => {
 
   const [selectedSymbol, setSelectedSymbol] = useState('')
-  const [data, setData] = useState('cheeseBurger')
+  const [data, setData] = useState('testData')
 
   const getData = () => {
     console.log("GETTING DATA")
@@ -35,18 +35,35 @@ const StockPicker = () => {
 
   }, [])
 
+
+  const handleStockSelect = (stock) => {
+    setSelectedSymbol(stock)
+  }
+
+  const stocks = data
+  // const stocks = ['FOUR', 'AT&T', 'AMZN', 'TSLA', 'GOOG', 'SONY', 'WEDS']
+
   return (
     <div className={styles.stockPickerContainer}>
       <NavBar />
       <div className={styles.stock}>
         <div>
+          <h1>Selected Stock: {selectedSymbol}</h1>
           <h1>Top 20 Stocks</h1>
         </div>
-        <div>
-          <h3>Games</h3>
-          <MagicEightBall />
-          <GameOfChance />
+          <h2>Stocks:</h2>
+          {stocks.map((stock) => {
+            return (
+              <li onClick={() => {
+                handleStockSelect(stock.symbol)
+              }}>{stock.symbol}</li>
+            )
+          })}
         </div>
+        <br />
+        <h2>Games</h2>
+        <MagicEightBall />
+        <GameOfChance />
       </div>
       <Footer />
     </div>
@@ -54,5 +71,3 @@ const StockPicker = () => {
 }
 
 export default StockPicker
-
-/// display yahoo stock data and make able to select a stock
