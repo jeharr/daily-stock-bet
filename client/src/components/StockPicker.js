@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
 import styles from './StockPicker.scss'
+
 
 const StockPicker = () => {
 
@@ -18,13 +18,16 @@ const StockPicker = () => {
       }
     }).then((res) => {
       // console.log('FULL INFO OBJECT YAHOO API', res)
+
       const stocksArray = res.data.finance.result[0].quotes.map((stock) => {
         return (
           stock.symbol
         )
       })
+
+
       setStockTicker(stocksArray)
-      // console.log("STOCKS ARRAY", stocksArray)
+      console.log("STOCKS ARRAY", stocksArray)
 
       axios({
         method: 'get',
