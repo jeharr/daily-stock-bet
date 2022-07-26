@@ -5,6 +5,7 @@ import { Router, Route } from 'react-router-dom'
 import StockPicker from './components/StockPicker'
 import NavBar from './components/NavBar'
 import MagicEightBall from "./components/MagicEightBall"
+import GameOfChance from './components/GameOfChance'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <NavBar />
       <StockPicker />
       <MagicEightBall />
+      <GameOfChance />
     </div>
   );
 }
