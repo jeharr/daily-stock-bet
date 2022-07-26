@@ -5,15 +5,18 @@ import { Router, Route } from 'react-router-dom'
 import StockPicker from './components/StockPicker'
 import NavBar from './components/NavBar'
 import MagicEightBall from "./components/MagicEightBall"
+import GameOfChance from './components/GameOfChance'
 
 function App() {
 
 
   return (
     <div className="App">
+      <h1>OUR APP</h1>
       <NavBar />
       <StockPicker />
       <MagicEightBall />
+      <GameOfChance />
     </div>
   );
 }
