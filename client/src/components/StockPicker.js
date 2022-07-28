@@ -17,7 +17,7 @@ const StockPicker = () => {
         'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
       }
     }).then((res) => {
-      // console.log('FULL INFO OBJECT YAHOO API', res)
+      console.log('FULL INFO OBJECT YAHOO API', res)
 
       const stocksArray = res.data.finance.result[0].quotes.map((stock) => {
         return (
@@ -36,10 +36,37 @@ const StockPicker = () => {
           'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
         }
       }).then((res) => {
-        console.log('FULL STOCK DATASET FROM YAHOO', res)
+        // console.log('FULL STOCK DATASET FROM YAHOO', res)
+        // console.log('PORTION OF DATSET NEEDED', res.data.quoteResponse.result)
+        const fullStockData = res.data.quoteResponse.result
+        console.log('FULL STOCK DATA', fullStockData)
 
-        setStockData(res)
-        console.log("THIS IS THE STOCK DATA", stockData.data.quoteResponse)
+
+        const stockObjects = fullStockData.map((data) => (
+          {
+            symbol: data.symbol,
+            fullExchangeName: data.fullExchangeName,
+            companyName: data.displayName,
+            longName: data.longName,
+            currency: data.currency,
+            analystRating: data.averageAnalystRating,
+            regularMarketDayHigh: data.regularMarketDayHigh,
+            regularMarketDayLow: data.regularMarketDayLow,
+            fiftyDayAverage: data.fiftyDayAverage,
+            fiftyTwoWeekHigh: data.fiftyTwoWeekHigh,
+            fiftyTwoWeekRange: data.fiftyTwoWeekRange,
+            fiftyTwoWeekLow: data.fiftyTwoWeekLow,
+            preMarketPrice: data.preMarketPrice,
+            twoHundredDayAverage: data.twoHundredDayAverage,
+            twoHundredDayAverageChange: data.twoHundredDayAverageChange
+          }
+        ))
+
+
+        console.log(stockObjects)
+
+        setStockData(stockObjects)
+        console.log("THIS IS THE STOCK DATA", stockData)
       })
 
 
@@ -80,7 +107,7 @@ const StockPicker = () => {
           </li>
         )
       })}
-
+      <h1>STOCK INFO: {stockData[0].symbol}</h1>
     </div>
   )
 }

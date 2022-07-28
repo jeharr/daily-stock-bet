@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
-    <dev>
-      <dev>contact information</dev>
+    <div>
+      <div>contact information</div>
       <a href='https://finance.yahoo.com/'>Yahoo</a>
-    </dev>
+    </div>
   )
 }
 
