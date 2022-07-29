@@ -107,7 +107,7 @@ const StockPicker = () => {
           </li>
         )
       })}
-      <h1>STOCK INFO: {stockData[0].symbol}</h1>
+      <h1>STOCK INFO: </h1>
     </div>
   )
 }
