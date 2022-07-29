@@ -16,8 +16,8 @@ function App() {
       <h1>OUR APP</h1>
       <NavBar />
       <StockPicker />
-      <MagicEightBall />
-      <GameOfChance />
+      {/* <MagicEightBall /> */}
+      {/* <GameOfChance /> */}
       <Footer />
     </div>
   );
