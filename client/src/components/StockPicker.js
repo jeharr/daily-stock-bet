@@ -17,7 +17,7 @@ const StockPicker = () => {
         'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
       }
     }).then((res) => {
-      console.log('FULL INFO OBJECT YAHOO API', res)
+      // console.log('FULL INFO OBJECT YAHOO API', res)
 
       const stocksArray = res.data.finance.result[0].quotes.map((stock) => {
         return (
@@ -36,13 +36,11 @@ const StockPicker = () => {
           'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
         }
       }).then((res) => {
-        // console.log('FULL STOCK DATASET FROM YAHOO', res)
-        // console.log('PORTION OF DATSET NEEDED', res.data.quoteResponse.result)
-        const fullStockData = res.data.quoteResponse.result
-        console.log('FULL STOCK DATA', fullStockData)
 
+        const fullStockData = res.data.quoteResponse.results
+        console.log(fullStockData)
 
-        const stockObjects = fullStockData.map((data) => (
+        const stockArray = fullStockData.map((data) => (
           {
             symbol: data.symbol,
             fullExchangeName: data.fullExchangeName,
@@ -63,10 +61,16 @@ const StockPicker = () => {
         ))
 
 
-        console.log(stockObjects)
+        function reducer(acc, curr) {
+          return { ...acc, [curr.symbol]: curr }
+        }
+
+        let stockObjects = stockArray.reduce(reducer, {})
+
 
         setStockData(stockObjects)
-        console.log("THIS IS THE STOCK DATA", stockData)
+        console.log(stockData.AAPL)
+
       })
 
 
@@ -86,14 +90,18 @@ const StockPicker = () => {
 
   // const dummyStocks = [{ symbol: 'DIS' }, { symbol: 'NTFX' }, { symbol: 'SONY' }, { symbol: 'AMZN' }, { symbol: 'APPL' }, { symbol: 'NIKE' }, { symbol: 'ADDS' }, { symbol: 'FNDR' }, { symbol: 'GBSN' }, { symbol: 'HYPR' }, { symbol: 'PKMN' }, { symbol: 'WRBR' }]
 
-  const firstStock = ''
-
 
   return (
     <div className={styles.stockPickerContainer}>
-      <h3>Current Stock: {selectedTicker}</h3>
-      <h4>Additional Stock Info: </h4>
-      {firstStock}
+      <div>
+        {/* <h3>Current Stock: {selectedTicker}</h3>
+        <h4>Additional Stock Info: </h4>
+        <p>Company Name: {stockData[selectedTicker].companyName}</p>
+        <p>Currency Type: {stockData[selectedTicker].currency}</p>
+        <p>Analyst Rating: {stockData[selectedTicker].analystRating}</p>
+        <p>Market High: {stockData[selectedTicker].regularMarketDayHigh}</p>
+        <p>Market Low: {stockData[selectedTicker].regularMarketDayLow}</p> */}
+      </div>
       <h3>Top 20 Stocks</h3>
       {stockTicker.map((ticker, index) => {
         return (
@@ -107,7 +115,6 @@ const StockPicker = () => {
           </li>
         )
       })}
-      <h1>STOCK INFO: </h1>
     </div>
   )
 }
