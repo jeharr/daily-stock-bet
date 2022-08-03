@@ -1,7 +1,7 @@
 .stockPickerContainer {
   width: 100px;
   height: 100px;
-  
+
   .stock {
     width: 100px;
     height: 100px;
@@ -9,5 +9,14 @@
     .stockName {
       width: 20px;
     }
+  }
+}
+
+.footerContainer {
+  width: 100ps;
+  height: 100ps;
+
+  .contactInfo {
+    color: blue;
   }
 }
