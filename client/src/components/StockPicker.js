@@ -72,8 +72,8 @@ const StockPicker = () => {
 
         let stockObjects = stockArray.reduce(reducer, {})
 
-
         setStockData(stockObjects)
+
         console.log('STOCK DATA****', stockData)
       })
 
@@ -115,13 +115,13 @@ const StockPicker = () => {
       <div>
         <h3>Current Stock: {selectedTicker}</h3>
         <h4>Additional Stock Info: </h4>
-        <p>Company Name: {stockData[selectedTicker].shortName ? stockData[selectedTicker].shortName : 'Nothing'}</p>
+        {/* <p>Company Name: {stockData[selectedTicker].shortName ? stockData[selectedTicker].shortName : 'Nothing'}</p>
         <p>Currency Type: {stockData[selectedTicker].currency}</p>
         <p>Ask: {stockData[selectedTicker].ask}</p>
         <p>Bid: {stockData[selectedTicker].bid}</p>
         <p>Analyst Rating: {stockData[selectedTicker].analystRating ? stockData[selectedTicker].analystRating : 'N/A'}</p>
         <p>Market High: {stockData[selectedTicker].regularMarketDayHigh}</p>
-        <p>Market Low: {stockData[selectedTicker].regularMarketDayLow}</p>
+        <p>Market Low: {stockData[selectedTicker].regularMarketDayLow}</p> */}
       </div>
     </div>
   )
