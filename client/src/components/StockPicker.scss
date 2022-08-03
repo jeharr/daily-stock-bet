@@ -12,9 +12,17 @@
   }
 }
 
+.navBar {
+  display: flex;
+  flex-direction: row;
+  font-family: sans-serif;
+  color: blue;
+}
+
 .footerContainer {
-  width: 100ps;
-  height: 100ps;
+  display: flex;
+  flex-direction: row;
+  font-family: monospace;
 
   .contactInfo {
     color: blue;

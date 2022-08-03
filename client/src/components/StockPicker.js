@@ -65,14 +65,15 @@ const StockPicker = () => {
         ))
 
         console.log("******STOCK ARRAY***", stockArray)
+
         function reducer(acc, curr) {
           return { ...acc, [curr.symbol]: curr }
         }
 
         let stockObjects = stockArray.reduce(reducer, {})
 
-
         setStockData(stockObjects)
+
         console.log('STOCK DATA****', stockData)
       })
 
@@ -92,7 +93,7 @@ const StockPicker = () => {
   }
 
   // const dummyStocks = [{ symbol: 'DIS' }, { symbol: 'NTFX' }, { symbol: 'SONY' }, { symbol: 'AMZN' }, { symbol: 'APPL' }, { symbol: 'NIKE' }, { symbol: 'ADDS' }, { symbol: 'FNDR' }, { symbol: 'GBSN' }, { symbol: 'HYPR' }, { symbol: 'PKMN' }, { symbol: 'WRBR' }]
-  const theStock = 'BA'
+
 
   return (
     <div className={styles.stockPickerContainer}>
@@ -114,13 +115,13 @@ const StockPicker = () => {
       <div>
         <h3>Current Stock: {selectedTicker}</h3>
         <h4>Additional Stock Info: </h4>
-        {/* <p>Company Name: {stockData[theStock].shortName ? stockData[theStock].shortName : 'Nothing'}</p> */}
-        {/* <p>Currency Type: {stockData[theStock].currency}</p>
-        <p>Ask: {stockData[theStock].ask}</p>
-        <p>Bid: {stockData[theStock].bid}</p>
-        <p>Analyst Rating: {stockData[theStock].analystRating ? stockData[theStock].analystRating : 'N/A'}</p>
-        <p>Market High: {stockData[theStock].regularMarketDayHigh}</p>
-        <p>Market Low: {stockData[theStock].regularMarketDayLow}</p> */}
+        {/* <p>Company Name: {stockData[selectedTicker].shortName ? stockData[selectedTicker].shortName : 'Nothing'}</p>
+        <p>Currency Type: {stockData[selectedTicker].currency}</p>
+        <p>Ask: {stockData[selectedTicker].ask}</p>
+        <p>Bid: {stockData[selectedTicker].bid}</p>
+        <p>Analyst Rating: {stockData[selectedTicker].analystRating ? stockData[selectedTicker].analystRating : 'N/A'}</p>
+        <p>Market High: {stockData[selectedTicker].regularMarketDayHigh}</p>
+        <p>Market Low: {stockData[selectedTicker].regularMarketDayLow}</p> */}
       </div>
     </div>
   )
