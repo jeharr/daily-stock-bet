@@ -12,70 +12,24 @@ const StockPicker = () => {
   const getStockData = () => {
     axios({
       method: 'get',
-      url: 'https://yfapi.net/v1/finance/trending/US',
-      headers: {
-        'X-API-KEY': 'HoQHKV0tbk9a436WLsg1K2N7bPAFbVRq6pvgQA5t'
-      }
+      url: 'https://financialmodelingprep.com/api/v3/stock_market/actives?apikey=f41a84df03e46f5ac0e7494cbb0c51dc',
+
     }).then((res) => {
-      // console.log('FULL INFO OBJECT YAHOO API', res)
 
-      const stocksArray = res.data.finance.result[0].quotes.map((stock) => {
-        return (
-          stock.symbol
-        )
-      })
+      setStockTicker(res.data)
 
+      const stocksData = res.data
 
-      setStockTicker(stocksArray)
-      // console.log("STOCKS ARRAY", stocksArray)
+      function reducer(acc, curr) {
+        return { ...acc, [curr.symbol]: curr }
+      }
 
-      axios({
-        method: 'get',
-        url: `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=${stocksArray.join(',')}`,
-        headers: {
-          'X-API-KEY': 'Zv0yymqdZZ32NiUUeV2Cq4CD8rsQwsZQ8FdQkUvx'
-        }
-      }).then((res) => {
+      let stocksObject = stocksData.reduce(reducer, {})
 
-        const fullStockData = res.data.quoteResponse.result
-        // console.log('THIS WORKS', fullStockData)
+      console.log('STOCK OBJECT OF OBJECTS: ', stocksObject)
 
-        const stockArray = fullStockData.map((data) => (
-          {
-            symbol: data.symbol,
-            fullExchangeName: data.fullExchangeName,
-            companyName: data.displayName,
-            shortName: data.shortName,
-            longName: data.longName,
-            currency: data.currency,
-            analystRating: data.averageAnalystRating,
-            ask: data.ask,
-            bid: data.bid,
-            regularPrice: data.regularMarketPrice,
-            regularMarketDayHigh: data.regularMarketDayHigh,
-            regularMarketDayLow: data.regularMarketDayLow,
-            fiftyDayAverage: data.fiftyDayAverage,
-            fiftyTwoWeekHigh: data.fiftyTwoWeekHigh,
-            fiftyTwoWeekRange: data.fiftyTwoWeekRange,
-            fiftyTwoWeekLow: data.fiftyTwoWeekLow,
-            preMarketPrice: data.preMarketPrice,
-            twoHundredDayAverage: data.twoHundredDayAverage,
-            twoHundredDayAverageChange: data.twoHundredDayAverageChange
-          }
-        ))
+      setStockData(stocksObject)
 
-        console.log("******STOCK ARRAY***", stockArray)
-
-        function reducer(acc, curr) {
-          return { ...acc, [curr.symbol]: curr }
-        }
-
-        let stockObjects = stockArray.reduce(reducer, {})
-
-        setStockData(stockObjects)
-
-        console.log('STOCK DATA****', stockData)
-      })
 
 
     }).catch((err) => {
@@ -98,16 +52,16 @@ const StockPicker = () => {
   return (
     <div className={styles.stockPickerContainer}>
       <div>
-        <h3>Top 20 Stocks</h3>
-        {stockTicker.map((ticker, index) => {
+        <h3>Top 30 Stocks</h3>
+        {stockTicker.map((stock, index) => {
           return (
             <li
               key={index}
               onClick={() => {
-                handleStockSelect(ticker)
+                handleStockSelect(stock.symbol)
               }}
             >
-              {ticker}
+              {index + 1}: {stock.symbol}
             </li>
           )
         })}
@@ -115,9 +69,13 @@ const StockPicker = () => {
       <div>
         <h3>Current Stock: {selectedTicker}</h3>
         <h4>Additional Stock Info: </h4>
-        {/* <p>Company Name: {stockData[selectedTicker].shortName ? stockData[selectedTicker].shortName : 'Nothing'}</p>
-        <p>Currency Type: {stockData[selectedTicker].currency}</p>
-        <p>Ask: {stockData[selectedTicker].ask}</p>
+        <p>Ticker: {stockData[selectedTicker].symbol} </p>
+        <p>Company Name: {stockData[selectedTicker].name} </p>
+        <p>Price: {stockData[selectedTicker].price} </p>
+        <p>Change: {stockData[selectedTicker].change} </p>
+        <p>Changes Percentage: {stockData[selectedTicker].changesPercentage} </p>
+        {/* <p>Currency Type: {stockData[selectedTicker].price}</p> */}
+        {/* <p>Ask: {stockData[selectedTicker].ask}</p>
         <p>Bid: {stockData[selectedTicker].bid}</p>
         <p>Analyst Rating: {stockData[selectedTicker].analystRating ? stockData[selectedTicker].analystRating : 'N/A'}</p>
         <p>Market High: {stockData[selectedTicker].regularMarketDayHigh}</p>
