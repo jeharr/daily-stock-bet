@@ -74,12 +74,6 @@ const StockPicker = () => {
         <p>Price: {stockData[selectedTicker].price} </p>
         <p>Change: {stockData[selectedTicker].change} </p>
         <p>Changes Percentage: {stockData[selectedTicker].changesPercentage} </p>
-        {/* <p>Currency Type: {stockData[selectedTicker].price}</p> */}
-        {/* <p>Ask: {stockData[selectedTicker].ask}</p>
-        <p>Bid: {stockData[selectedTicker].bid}</p>
-        <p>Analyst Rating: {stockData[selectedTicker].analystRating ? stockData[selectedTicker].analystRating : 'N/A'}</p>
-        <p>Market High: {stockData[selectedTicker].regularMarketDayHigh}</p>
-        <p>Market Low: {stockData[selectedTicker].regularMarketDayLow}</p> */}
       </div>
     </div>
   )
