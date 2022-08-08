@@ -1,9 +1,9 @@
 const UserProfile = () => {
   return (
     <div>
-      <p>User Name:</p>
-      <p>User Money:</p>
-      <p>User Winning Streak:</p>
+      <h3>User Name:</h3>
+      <h3>User Money:</h3>
+      <h3>User Winning Streak:</h3>
     </div>
   )
 }

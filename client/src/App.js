@@ -7,6 +7,7 @@ import NavBar from './components/NavBar'
 import MagicEightBall from "./components/MagicEightBall"
 import GameOfChance from './components/GameOfChance'
 import Footer from './components/Footer'
+import UserProfile from './components/UserProfile'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <StockPicker />
       {/* <MagicEightBall /> */}
       {/* <GameOfChance /> */}
+      <UserProfile />
       <Footer />
     </div>
   );
