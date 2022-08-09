@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styles from './StockPicker.scss'
+import { isEmpty } from 'lodash'
 
 
 const StockPicker = () => {
 
   const [stockTicker, setStockTicker] = useState([])
-  const [selectedTicker, setSelectedTicker] = useState('AAPL')
-  const [stockData, setStockData] = useState([])
+  const [selectedTicker, setSelectedTicker] = useState('')
+  const [stockData, setStockData] = useState({})
 
   const getStockData = () => {
     axios({
@@ -46,8 +47,18 @@ const StockPicker = () => {
     setSelectedTicker(stock)
   }
 
-  // const dummyStocks = [{ symbol: 'DIS' }, { symbol: 'NTFX' }, { symbol: 'SONY' }, { symbol: 'AMZN' }, { symbol: 'APPL' }, { symbol: 'NIKE' }, { symbol: 'ADDS' }, { symbol: 'FNDR' }, { symbol: 'GBSN' }, { symbol: 'HYPR' }, { symbol: 'PKMN' }, { symbol: 'WRBR' }]
+  let stockTickerComponent;
 
+  if (!isEmpty(stockData) && selectedTicker) {
+    stockTickerComponent = (
+      <>
+        <p>Ticker: {stockData[selectedTicker].symbol} </p>
+        <p>Company Name: {stockData[selectedTicker].name} </p>
+        <p>Price: {stockData[selectedTicker].price} </p>
+        <p>Change: {stockData[selectedTicker].change} </p>
+        <p>Changes Percentage: {stockData[selectedTicker].changesPercentage} </p>
+      </>)
+  }
 
   return (
     <div className={styles.stockPickerContainer}>
@@ -69,11 +80,7 @@ const StockPicker = () => {
       <div>
         <h3>Current Stock: {selectedTicker}</h3>
         <h4>Additional Stock Info: </h4>
-        <p>Ticker: {stockData[selectedTicker].symbol} </p>
-        <p>Company Name: {stockData[selectedTicker].name} </p>
-        <p>Price: {stockData[selectedTicker].price} </p>
-        <p>Change: {stockData[selectedTicker].change} </p>
-        <p>Changes Percentage: {stockData[selectedTicker].changesPercentage} </p>
+        {stockTickerComponent}
       </div>
     </div>
   )

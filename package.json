@@ -12,6 +12,7 @@
     "finnhub": "^1.2.14",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "lodash": "^4.17.21",
     "morgan": "~1.9.1",
     "query-string": "^7.1.1"
   }
