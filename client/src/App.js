@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Router, Route } from 'react-router-dom'
 //import { customHistory } from './stores'
 
@@ -11,14 +11,15 @@ import UserProfile from './components/UserProfile'
 
 function App() {
 
+  let [moneyOnHand, setMoneyOnHand] = useState(100)
 
   return (
     <div className="App">
       <NavBar />
-      <StockPicker />
+      <UserProfile />
+      <StockPicker moneyOnHand={moneyOnHand} setMoneyOnHand={setMoneyOnHand} />
       {/* <MagicEightBall /> */}
       {/* <GameOfChance /> */}
-      <UserProfile />
       <Footer />
     </div>
   );
