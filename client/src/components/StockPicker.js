@@ -4,11 +4,13 @@ import styles from './StockPicker.scss'
 import { isEmpty } from 'lodash'
 
 
-const StockPicker = () => {
+const StockPicker = ({ moneyOnHand, setMoneyOnHand, ...props }) => {
 
   const [stockTicker, setStockTicker] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
   const [stockData, setStockData] = useState({})
+  const [wager, setWager] = useState(0)
+  const [stockStatus, setStockStatus] = useState('Static')
 
   const getStockData = () => {
     axios({
@@ -60,6 +62,48 @@ const StockPicker = () => {
       </>)
   }
 
+  let buttonSelect;
+
+  if (selectedTicker) {
+    buttonSelect = (
+      <>
+        <input
+          id='wager'
+          value={wager}
+          placeholder="Place Bet"
+          onChange={(e) => setWager(e.target.value)}
+        >
+        </input>
+        <br />
+        <button
+          onClick={() => {
+            setStockStatus('up')
+          }}
+        >
+          Stock Goes Up
+        </button>
+        <button
+          onClick={() => {
+            setStockStatus('down')
+          }}
+        >
+          Stock Goes Down
+        </button>
+        <br />
+        <button
+          onClick={() => {
+            setMoneyOnHand(moneyOnHand - wager)
+            setWager(0)
+          }}
+        >
+          Place Bet
+        </button>
+
+      </>
+    )
+
+  }
+
   return (
     <div className={styles.stockPickerContainer}>
       <div>
@@ -77,10 +121,15 @@ const StockPicker = () => {
           )
         })}
       </div>
+
       <div>
         <h3>Current Stock: {selectedTicker}</h3>
-        <h4>Additional Stock Info: </h4>
+        <h4>Stock Info: </h4>
         {stockTickerComponent}
+        Money On Hand: {moneyOnHand}
+        <br />
+        {buttonSelect}
+        {console.log('STOCK STATUS', stockStatus, 'WAGER', wager, 'MONEY ON HAND', moneyOnHand)}
       </div>
     </div>
   )
