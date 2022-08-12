@@ -4,7 +4,8 @@ import styles from './StockPicker.scss'
 import { isEmpty } from 'lodash'
 
 
-const StockPicker = ({ moneyOnHand, setMoneyOnHand, ...props }) => {
+
+const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, ...props }) => {
 
   const [stockTicker, setStockTicker] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
@@ -93,6 +94,7 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, ...props }) => {
         <button
           onClick={() => {
             setMoneyOnHand(moneyOnHand - wager)
+            setStockValue(stockData[selectedTicker].price)
             setWager(0)
           }}
         >
@@ -129,7 +131,7 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, ...props }) => {
         Money On Hand: {moneyOnHand}
         <br />
         {buttonSelect}
-        {console.log('STOCK STATUS', stockStatus, 'WAGER', wager, 'MONEY ON HAND', moneyOnHand)}
+        {console.log('STOCK STATUS', stockStatus, 'WAGER', wager, 'MONEY ON HAND', moneyOnHand, 'STOCK VALUE', stockValue)}
       </div>
     </div>
   )

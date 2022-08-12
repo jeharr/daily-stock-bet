@@ -12,12 +12,18 @@ import UserProfile from './components/UserProfile'
 function App() {
 
   let [moneyOnHand, setMoneyOnHand] = useState(100)
+  const [stockValue, setStockValue] = useState(0)
 
   return (
     <div className="App">
       <NavBar />
       <UserProfile />
-      <StockPicker moneyOnHand={moneyOnHand} setMoneyOnHand={setMoneyOnHand} />
+      <StockPicker
+        moneyOnHand={moneyOnHand}
+        setMoneyOnHand={setMoneyOnHand}
+        stockValue={stockValue}
+        setStockValue={setStockValue}
+      />
       {/* <MagicEightBall /> */}
       {/* <GameOfChance /> */}
       <Footer />
