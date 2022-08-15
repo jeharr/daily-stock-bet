@@ -8,11 +8,13 @@ import MagicEightBall from "./components/MagicEightBall"
 import GameOfChance from './components/GameOfChance'
 import Footer from './components/Footer'
 import UserProfile from './components/UserProfile'
+import WinOrLose from './components/WinOrLose'
 
 function App() {
 
   let [moneyOnHand, setMoneyOnHand] = useState(100)
   const [stockValue, setStockValue] = useState(0)
+  const [bet, setBet] = useState({})
 
   return (
     <div className="App">
@@ -23,6 +25,12 @@ function App() {
         setMoneyOnHand={setMoneyOnHand}
         stockValue={stockValue}
         setStockValue={setStockValue}
+        bet={bet}
+        setBet={setBet}
+      />
+      <WinOrLose
+        moneyOnHand={moneyOnHand}
+        bet={bet}
       />
       {/* <MagicEightBall /> */}
       {/* <GameOfChance /> */}

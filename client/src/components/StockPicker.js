@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styles from './StockPicker.scss'
 import { isEmpty } from 'lodash'
+import moment from 'moment'
 
 
 
-const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, ...props }) => {
+const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, bet, setBet, ...props }) => {
 
   const [stockTicker, setStockTicker] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
@@ -34,7 +35,7 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, .
 
       setStockData(stocksObject)
 
-
+      console.log('STOCK DATA*******', stockData)
 
     }).catch((err) => {
       console.log('THIS IS THE ERROR: ', err)
@@ -94,6 +95,15 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, .
         <button
           onClick={() => {
             setMoneyOnHand(moneyOnHand - wager)
+            setBet({
+              currentTime: moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
+              stockTicker: stockData[selectedTicker].symbol,
+              stockName: stockData[selectedTicker].name,
+              currentValue: stockData[selectedTicker].price,
+              stockChange: stockData[selectedTicker].change,
+              wagerAmount: wager,
+              stockDirection: stockStatus
+            })
             setStockValue(stockData[selectedTicker].price)
             setWager(0)
           }}
@@ -131,7 +141,7 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, .
         Money On Hand: {moneyOnHand}
         <br />
         {buttonSelect}
-        {console.log('STOCK STATUS', stockStatus, 'WAGER', wager, 'MONEY ON HAND', moneyOnHand, 'STOCK VALUE', stockValue)}
+        {console.log('STOCK STATUS', stockStatus, 'WAGER', wager, 'MONEY ON HAND', moneyOnHand, 'STOCK VALUE', stockValue, 'BET', bet)}
       </div>
     </div>
   )
