@@ -1,8 +1,7 @@
 const UserMoney = () => {
   return (
     <div>
-      Your Stock:
-      Current Money:
+
     </div>
   )
 }
