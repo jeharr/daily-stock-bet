@@ -7,7 +7,7 @@ const WinOrLose = (moneyOnHand, bet) => {
 
   return (
     <div>
-      You won! let us double your ${moneyOnHand.bet.wagerAmount} wager!
+      You won! let us double your ${moneyOnHand.bet.wagerAmount} wager!!!
       {console.log('****INSIDE THE WINORLOSE BET', moneyOnHand.bet.wagerAmount)}
     </div>
   )
