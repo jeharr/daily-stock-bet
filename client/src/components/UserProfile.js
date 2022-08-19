@@ -1,14 +1,22 @@
 import { useState } from 'react'
-import UserMoney from "./UserMoney"
+
 
 const UserProfile = () => {
-  const [userInfo, setUserInfo] = useState({})
+  const [userName, setUserName] = useState('')
+
 
   return (
     <div>
-      <h3>User Name: {userInfo}</h3>
-      <UserMoney />
-      <h3>User Winning Streak:</h3>
+      <form>
+        <h3>Sign In</h3>
+        <input
+          id="userName"
+          value={userName}
+          placeholder="User Name"
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   )
 }
