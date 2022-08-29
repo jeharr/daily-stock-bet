@@ -1,5 +1,6 @@
 import logo from '../images/appLogo.jpeg'
 import TimeAndDate from './TimeAndDate'
+import UserProfile from './UserProfile'
 
 const NavBar = () => {
   return (
@@ -8,6 +9,7 @@ const NavBar = () => {
       <h1>Stock Speculator</h1>
 
       <TimeAndDate />
+      <UserProfile />
 
     </div>
   )
