@@ -7,7 +7,6 @@ import NavBar from './components/NavBar'
 import MagicEightBall from "./components/MagicEightBall"
 import GameOfChance from './components/GameOfChance'
 import Footer from './components/Footer'
-import UserProfile from './components/UserProfile'
 import WinOrLose from './components/WinOrLose'
 import ThemeContext from './components/ThemeContext'
 
@@ -23,7 +22,6 @@ function App() {
       <div className="App">
 
         <NavBar />
-        <UserProfile />
         <StockPicker
           moneyOnHand={moneyOnHand}
           setMoneyOnHand={setMoneyOnHand}

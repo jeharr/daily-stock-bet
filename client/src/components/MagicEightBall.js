@@ -62,13 +62,6 @@ class MagicEightBall extends React.Component {
     return (
       <div>
         <div>
-          <input
-            type="text"
-            placeholder="type your question here"
-            value={this.state.userInput}
-            onChange={this.handleChange}
-            style={inputStyle}
-          />
           <br />
           <button onClick={this.ask}>
             <h3>
@@ -80,6 +73,13 @@ class MagicEightBall extends React.Component {
             <p>{answer}</p>
           </button>
           <br />
+          <input
+            type="text"
+            placeholder="type your question here"
+            value={this.state.userInput}
+            onChange={this.handleChange}
+            style={inputStyle}
+          />
         </div>
       </div>
     )
