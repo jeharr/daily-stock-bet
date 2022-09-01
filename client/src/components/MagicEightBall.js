@@ -54,7 +54,8 @@ class MagicEightBall extends React.Component {
       'My sources say no',
       'Most likely',
       'Outlook not so good',
-      'Very doubtful'
+      'Very doubtful',
+      'Today is not the day'
     ]
 
     const answer = possibleAnswers[this.state.randomIndex]
