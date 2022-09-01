@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-const UserProfile = () => {
+const SignIn = () => {
   const [userName, setUserName] = useState('')
 
 
@@ -15,10 +15,17 @@ const UserProfile = () => {
           placeholder="User Name"
           onChange={(e) => setUserName(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          onClick={() => {
+            alert(`Welcome ${userName}`)
+          }}
+        >
+          Submit
+        </button>
       </form>
     </div>
   )
 }
 
-export default UserProfile
+export default SignIn
