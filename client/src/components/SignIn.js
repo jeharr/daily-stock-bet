@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styles from './StockPicker.scss'
 
 
 const SignIn = () => {
@@ -6,10 +7,8 @@ const SignIn = () => {
 
 
   return (
-    <div>
-      <form
-        className={styles.navBar}
-      >
+    <div className={styles.nav}>
+      <form >
 
         <h3>Sign In</h3>
 
