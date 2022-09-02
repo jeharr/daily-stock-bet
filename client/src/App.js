@@ -34,8 +34,8 @@ function App() {
           moneyOnHand={moneyOnHand}
           bet={bet}
         />
-        <MagicEightBall />
-        <GameOfChance />
+        {/* <MagicEightBall />
+        <GameOfChance /> */}
         <Footer />
       </div>
     </ThemeContext.Provider>
