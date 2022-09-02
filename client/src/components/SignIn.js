@@ -7,14 +7,19 @@ const SignIn = () => {
 
   return (
     <div>
-      <form>
+      <form
+        className={styles.navBar}
+      >
+
         <h3>Sign In</h3>
+
         <input
           id="userName"
           value={userName}
           placeholder="User Name"
           onChange={(e) => setUserName(e.target.value)}
         />
+
         <button
           type="submit"
           onClick={() => {
