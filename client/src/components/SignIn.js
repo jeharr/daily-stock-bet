@@ -1,14 +1,12 @@
 import { useState } from 'react'
-import styles from './StockPicker.scss'
-
 
 const SignIn = () => {
   const [userName, setUserName] = useState('')
 
 
   return (
-    <div className={styles.nav}>
-      <form >
+    <div>
+      <form className='signIn'>
 
         <h3>Sign In</h3>
 

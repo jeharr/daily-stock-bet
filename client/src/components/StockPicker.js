@@ -117,7 +117,7 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, b
   }
 
   return (
-    <div className={styles.stockPickerContainer}>
+    <div className='stockWindow'>
       <div>
         <h3>Top 30 Stocks</h3>
         {stockTicker.map((stock, index) => {
