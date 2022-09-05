@@ -1,6 +1,7 @@
 import logo from '../images/appLogo.jpeg'
 import TimeAndDate from './TimeAndDate'
 import SignIn from './SignIn'
+import styles from './StockPicker.scss'
 
 const NavBar = () => {
   return (

@@ -1,6 +1,7 @@
 .stockPickerContainer {
   width: 100px;
   height: 100px;
+  color: pink;
 
   .stock {
     width: 100px;
@@ -12,16 +13,24 @@
   }
 }
 
+.stockWindow {
+  display:flex;
+  flex-direction: row;
+  gap: 500px;
+}
+
 .navBar {
   display: flex;
   flex-direction: row;
-  font-family: sans-serif;
+  gap: 20px;
   color: blue;
+
 }
 
 .footerContainer {
   display: flex;
   flex-direction: row;
+  justify-content: end;
   font-family: monospace;
 
   .contactInfo {
@@ -29,8 +38,10 @@
   }
 }
 
-.nav {
+
+.signIn {
   display: flex;
   flex-direction: row;
-  font-family: 'Times New Roman', Times, serif;
+  justify-content: end;
+  gap: 10px;
 }

@@ -7,6 +7,7 @@ import NavBar from './components/NavBar'
 import MagicEightBall from "./components/MagicEightBall"
 import GameOfChance from './components/GameOfChance'
 import Footer from './components/Footer'
+import Tester from './components/Tester'
 import WinOrLose from './components/WinOrLose'
 import ThemeContext from './components/ThemeContext'
 
@@ -37,6 +38,7 @@ function App() {
         {/* <MagicEightBall />
         <GameOfChance /> */}
         <Footer />
+        <Tester />
       </div>
     </ThemeContext.Provider>
   );
