@@ -15,7 +15,7 @@ const SignIn = () => {
         <input
           id="userName"
           value={userName}
-          placeholder="User Name"
+          placeholder="Create User Name"
           onChange={(e) => setUserName(e.target.value)}
         />
 
