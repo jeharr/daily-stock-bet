@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { Router, Route } from 'react-router-dom'
 //import { customHistory } from './stores'
+import ThemeContext from './components/ThemeContext'
 
-import StockPicker from './components/StockPicker'
 import NavBar from './components/NavBar'
+import StockPicker from './components/StockPicker'
 import MagicEightBall from "./components/MagicEightBall"
 import GameOfChance from './components/GameOfChance'
-import Footer from './components/Footer'
-import Tester from './components/Tester'
 import WinOrLose from './components/WinOrLose'
-import ThemeContext from './components/ThemeContext'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -31,14 +30,13 @@ function App() {
           bet={bet}
           setBet={setBet}
         />
-        <WinOrLose
+        {/* <WinOrLose
           moneyOnHand={moneyOnHand}
           bet={bet}
-        />
+        /> */}
         {/* <MagicEightBall />
         <GameOfChance /> */}
         <Footer />
-        <Tester />
       </div>
     </ThemeContext.Provider>
   );

@@ -1,15 +1,16 @@
 import logo from '../images/appLogo.jpeg'
 import TimeAndDate from './TimeAndDate'
 import SignIn from './SignIn'
-import styles from './StockPicker.scss'
 
 const NavBar = () => {
   return (
     <div className='navBar'>
-      <img src={logo} alt='cat' />
-      <h1>Stock Speculator</h1>
-      <TimeAndDate />
-      <SignIn />
+      <img src={logo} alt='' className='logo' />
+      <h1 className='header'>Stock Speculator</h1>
+      <div className='signIn'>
+        <TimeAndDate />
+        <SignIn />
+      </div>
 
     </div>
   )
