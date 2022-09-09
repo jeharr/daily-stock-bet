@@ -140,10 +140,14 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, b
         <h4>Stock Info: </h4>
         {stockTickerComponent}
         <br />
-        {buttonSelect}
         {console.log('STOCK STATUS', stockStatus, 'WAGER', wager, 'MONEY ON HAND', moneyOnHand, 'STOCK VALUE', stockValue, 'BET', bet)}
       </div>
-      Money On Hand: {moneyOnHand}
+      <div>
+        <h3>
+          Money On Hand: {moneyOnHand}
+        </h3>
+        {buttonSelect}
+      </div>
     </div>
   )
 }
