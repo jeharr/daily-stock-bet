@@ -1,4 +1,4 @@
-$primary-color: blue;
+$primary-color: rgb(78, 78, 242);
 
 .navBar {
   display: flex;
@@ -6,7 +6,7 @@ $primary-color: blue;
   justify-content: space-between;
   gap: 20px;
   border: solid;
-  border-radius: 10px;
+  border-radius: 15px;
   border-color: rgb(12, 219, 255);
 }
 
