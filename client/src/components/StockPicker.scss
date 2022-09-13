@@ -1,47 +1,121 @@
-.stockPickerContainer {
-  width: 100px;
-  height: 100px;
-  color: pink;
-
-  .stock {
-    width: 100px;
-    height: 100px;
-
-    .stockName {
-      width: 20px;
-    }
-  }
-}
-
-.stockWindow {
-  display:flex;
-  flex-direction: row;
-  gap: 500px;
-}
+$primary-color: rgb(78, 78, 242);
 
 .navBar {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 20px;
-  color: blue;
-
+  border: solid;
+  border-radius: 15px;
+  border-color: rgb(12, 219, 255);
 }
+
+.logo {
+  justify-content: start;
+}
+
+.header {
+  font-size: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: $primary-color;
+}
+
+.signIn {
+  display:flex;
+  gap: 10px;
+  font-size: 20px;
+}
+
+
+
+
+.stockWindow {
+    display:flex;
+    border-style: double;
+    background-color: rgb(218, 248, 248);
+    font-size: 20px;
+    padding: 20px;
+
+    header {
+      font-size: 25px;
+      border: 10px;
+    }
+
+
+    ul {
+      margin:0;
+      padding: 0;
+    list-style: none;
+    font-size: 20px;
+    }
+
+   li {
+    display: column;
+    font-size: 25px;
+    color: Black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: azure;
+   }
+
+   .currentStock {
+     background-color: rgb(135, 170, 241);
+     font-size: 25px;
+     font-family: sans-serif;
+     border: solid;
+     border-color: aqua;
+     border-radius: 5px;
+   }
+  }
+
+  // stockWindow {
+  //   display:flex;
+  //   flex-direction: row;
+  //   gap: 500px;
+  //   border: solid;
+  //   border-color: aqua;
+  //   border-radius: 10px;
+  // }
+
+
+//   .stockListings {
+//   flex-direction: column;
+//   font-family:'Times New Roman', Times, serif;
+//   background-color: rgb(135, 170, 241);
+//   border: solid;
+//   border-color: aqua;
+//   border-radius: 5px;
+// }
+
+
+
+
 
 .footerContainer {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: center;
+  gap:10px;
   font-family: monospace;
+  font-size: 20px;
 
   .contactInfo {
-    color: blue;
+    color: $primary-color;
   }
 }
 
 
-.signIn {
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  gap: 10px;
-}
+
+// .stockPickerContainer {
+//   width: 100px;
+//   height: 100px;
+//   color: $primary-color;
+
+//   .stock {
+//     width: 100px;
+//     height: 100px;
+
+//     .stockName {
+//       width: 20px;
+//     }
+//   }
+// }

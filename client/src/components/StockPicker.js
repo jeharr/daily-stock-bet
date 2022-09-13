@@ -117,9 +117,9 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, b
   }
 
   return (
-    <div className='stockWindow'>
+    <div className='stockWindow' >
       <div>
-        <h3>Top 30 Stocks</h3>
+        <h3 className='header'>Top 30 Stocks</h3>
         {stockTicker.map((stock, index) => {
           return (
             <li
@@ -127,6 +127,7 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, b
               onClick={() => {
                 handleStockSelect(stock.symbol)
               }}
+              className='li'
             >
               {index + 1}: {stock.symbol}
             </li>
@@ -134,14 +135,18 @@ const StockPicker = ({ moneyOnHand, setMoneyOnHand, stockValue, setStockValue, b
         })}
       </div>
 
-      <div>
+      <div className='currentStock'>
         <h3>Current Stock: {selectedTicker}</h3>
         <h4>Stock Info: </h4>
         {stockTickerComponent}
-        Money On Hand: {moneyOnHand}
         <br />
-        {buttonSelect}
         {console.log('STOCK STATUS', stockStatus, 'WAGER', wager, 'MONEY ON HAND', moneyOnHand, 'STOCK VALUE', stockValue, 'BET', bet)}
+      </div>
+      <div>
+        <h3>
+          Money On Hand: {moneyOnHand}
+        </h3>
+        {buttonSelect}
       </div>
     </div>
   )
