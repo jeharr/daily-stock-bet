@@ -3,7 +3,7 @@ import React from 'react'
 const LoadingSpinner = () => {
 
   return (
-    <di>Loading...</di>
+    <di>Loading...please wait...</di>
   )
 }
 
