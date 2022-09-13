@@ -9,7 +9,7 @@ import MagicEightBall from "./components/MagicEightBall"
 import GameOfChance from './components/GameOfChance'
 import WinOrLose from './components/WinOrLose'
 import Footer from './components/Footer'
-import LoadingSpinner from './components/LoadingSpinner'
+
 
 function App() {
 
