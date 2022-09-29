@@ -3,13 +3,14 @@ import { Router, Route } from "react-router-dom";
 //import { customHistory } from './stores'
 import ThemeContext from "./components/ThemeContext";
 
+
 import NavBar from "./components/NavBar";
 import StockPicker from "./components/StockPicker";
 import MagicEightBall from "./components/MagicEightBall";
 import GameOfChance from "./components/GameOfChance";
 import WinOrLose from "./components/WinOrLose";
 import Footer from "./components/Footer";
-import LoadingSpinner from "./components/LoadingSpinner";
+
 
 function App() {
   let [moneyOnHand, setMoneyOnHand] = useState(100);
